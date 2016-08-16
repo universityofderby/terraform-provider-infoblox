@@ -1,14 +1,13 @@
-[![Build
-status](https://travis-ci.org/prudhvitella/terraform-provider-infoblox.svg)](https://travis-ci.org/prudhvitella/terraform-provider-infoblox)
+[![Buildstatus](https://travis-ci.org/prudhvitella/terraform-provider-infoblox.svg)](https://travis-ci.org/prudhvitella/terraform-provider-infoblox)
 
 # [Terraform](https://github.com/hashicorp/terraform) Infoblox Provider
 
-The Inflbox provider is used to interact with the
+The Terraform Infoblox provider is used to interact with the
 resources supported by Infoblox. The provider needs to be configured
 with the proper credentials before it can be used.
 
 ##  Download
-Download builds for Darwin, Linux and Windows from the [releases page](https://github.com/prudhvitella/terraform-provider-infoblox/releases/).
+Download builds for Darwin, Linux and Windows from the [releases page](https://github.com/universityofderby/terraform-provider-infoblox/releases/).
 
 ## Example Usage
 
@@ -45,27 +44,53 @@ Provides a Infoblox record resource.
 ## Example Usage
 
 ```
-# Add a record to the domain
+# Create A record
 resource "infoblox_record" "foobar" {
-	value = "192.168.0.10"
 	name = "terraform"
 	domain = "mydomain.com"
 	type = "A"
+	value = "192.168.0.10"
 	ttl = 3600
+}
+```
+
+```
+# Create A record using nextavailableip
+resource "infoblox_record" "foobar" {
+	name = "terraform"
+	domain = "mydomain.com"
+	nextavailableip = true
+	value = "192.168.0.0/24"
+	type = "A"
+}
+```
+
+```
+# Create host record using nextavailableip
+resource "infoblox_record" "foobar" {
+	name = "terraform"
+	domain = "mydomain.com"
+	nextavailableip = true
+	value = "192.168.0.0/24"
+	type = "Host"
+	comment = "Terraform test record"
 }
 ```
 
 ## Argument Reference
 
-See [related part of Infoblox Docs](https://godoc.org/github.com/fanatic/go-infoblox) for details about valid values.
+See [related part of Infoblox Docs](https://godoc.org/github.com/universityofderby/go-infoblox) for details about valid values.
 
 The following arguments are supported:
 
+* `comment` - (Optional) The comment of the record
 * `domain` - (Required) The domain to add the record to
-* `value` - (Required) The value of the record; its usage will depend on the `type` (see below)
 * `name` - (Required) The name of the record
+* `nextavailableip` - (Boolean, Optional) Get next available IP address using CIDR or other search
 * `ttl` - (Integer, Optional) The TTL of the record
 * `type` - (Required) The type of the record
+* `value` - (Required) The value of the record; its usage will depend on the `type` (see below)
+* `view` - (Optional) The view of the record
 
 ## DNS Record Types
 
@@ -73,25 +98,35 @@ The type of record being created affects the interpretation of the `value` argum
 
 #### A Record
 
-* `value` is the hostname
-
-#### CNAME Record
-
-* `value` is the alias name
+* `value` is the IPv4 address, or the search value (e.g. CIDR) if nextavailableip = true
 
 #### AAAA Record
 
-* `value` is the IPv6 address
+* `value` is the IPv6 address, or the search value (e.g. CIDR) if nextavailableip = true
+
+#### CNAME Record
+
+* `value` is the canonical name
+
+#### Host Record
+
+* `value` is the IPv4 address, or the search value (e.g. CIDR) if nextavailableip = true
 
 ## Attributes Reference
 
 The following attributes are exported:
 
-* `domain` - The domain of the record
-* `value` - The value of the record
-* `name` - The name of the record
-* `type` - The type of the record
-* `ttl` - The TTL of the record
+* `comment` - The comment of the record [string]
+* `domain` - The domain of the record [string]
+* `fqdn` - The FQDN (computed) of the record [string]
+* `ipv4addr` - The IPv4 address (computed) of the record [string]
+* `ipv6addr` - The IPv6 address (computed) of the record [string]
+* `name` - The name of the record [string]
+* `nextavailableip` - Get next available IP address using CIDR or other search [bool]
+* `type` - The type of the record [string]
+* `ttl` - The TTL of the record [int]
+* `value` - The value of the record [string]
+* `view` - The view of the record [string]
 
 # infoblox\_ip
 
