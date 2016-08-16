@@ -6,9 +6,9 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/fanatic/go-infoblox"
 	"github.com/hashicorp/terraform/helper/resource"
 	"github.com/hashicorp/terraform/terraform"
-	"github.com/universityofderby/go-infoblox"
 )
 
 func TestAccInfobloxRecord_Basic(t *testing.T) {

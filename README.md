@@ -79,7 +79,7 @@ resource "infoblox_record" "foobar" {
 
 ## Argument Reference
 
-See [related part of Infoblox Docs](https://godoc.org/github.com/universityofderby/go-infoblox) for details about valid values.
+See [related part of Infoblox Docs](https://godoc.org/github.com/fanatic/go-infoblox) for details about valid values.
 
 The following arguments are supported:
 

@@ -3,7 +3,7 @@ package infoblox
 import (
 	"log"
 
-	"github.com/universityofderby/go-infoblox"
+	"github.com/fanatic/go-infoblox"
 )
 
 // Config holds authentication details of Infoblox

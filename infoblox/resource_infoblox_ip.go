@@ -50,8 +50,8 @@ import (
 	"log"
 	"strings"
 
+	"github.com/fanatic/go-infoblox"
 	"github.com/hashicorp/terraform/helper/schema"
-	"github.com/universityofderby/go-infoblox"
 )
 
 func resourceInfobloxIP() *schema.Resource {
