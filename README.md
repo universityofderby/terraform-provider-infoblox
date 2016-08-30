@@ -1,4 +1,4 @@
-[![Buildstatus](https://travis-ci.org/prudhvitella/terraform-provider-infoblox.svg)](https://travis-ci.org/prudhvitella/terraform-provider-infoblox)
+[![Buildstatus](https://travis-ci.org/universityofderby/terraform-provider-infoblox.svg)](https://travis-ci.org/universityofderby/terraform-provider-infoblox)
 
 # [Terraform](https://github.com/hashicorp/terraform) Infoblox Provider
 
