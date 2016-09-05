@@ -5,7 +5,7 @@ install:
   - echo noop
 script:
   - go get -u github.com/golang/lint/golint
-  - golint ./...
+#  - golint ./...
   - make test
 before_install:
   - go get github.com/mitchellh/gox
