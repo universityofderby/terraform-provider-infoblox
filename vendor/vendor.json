@@ -147,10 +147,10 @@
 			"revisionTime": "2015-11-05T21:09:06Z"
 		},
 		{
-			"checksumSHA1": "rg4enUG5MIarl/i3n0wzKQu2jIU=",
-			"path": "github.com/fanatic/go-infoblox",
-			"revision": "d2a0c53da1cf587c82eac7e1d7ae3c35434c1301",
-			"revisionTime": "2015-12-01T22:57:18Z"
+        "checksumSHA1": "z3lHVYDl9RxwohEF3u2IMnB8z28=",
+        "path": "github.com/fanatic/go-infoblox",
+        "revision": "4f1fe2aaa9bdf9c91e4ad6fbe278c4e34ef96ed9",
+        "revisionTime": "2016-08-16T14:32:51Z"
 		},
 		{
       "comment": "v1.18.0",
